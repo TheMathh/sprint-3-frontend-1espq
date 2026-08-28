@@ -322,6 +322,90 @@ section {
   flex-shrink: 0;
 }
 
+/* ── PÚBLICO-ALVO (Grid) ── */
+#publico-alvo {
+  padding: 100px 60px;
+  background: #ffffff;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 24px;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 16px;
+  background: #fafafa;
+}
+
+.audience-card .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.audience-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1a1a2e;
+}
+
+.audience-card p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ── GALERIA (Grid) ── */
+#galeria {
+  padding: 100px 60px;
+  background: #fafafa;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1.5px solid #f0f0f0;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item figcaption {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #6b7280;
+  padding: 10px 0;
+}git add -p index.html css/style.css
+
 /* ── CONTATOS ── */
 #contatos {
   padding: 100px 60px;
