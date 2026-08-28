@@ -156,6 +156,8 @@ nav {
 section {
   position: relative;
   overflow: hidden;
+  z-index: 0; /* isola cada section como stacking context, para o blob
+                 (z-index: -1) ficar atrás só do conteúdo dela mesma */
 }
 
 .section-label {
@@ -344,6 +346,11 @@ section {
   flex: 1;
 }
 
+.contact-left img {
+  max-width: 100%;
+  height: auto;
+}
+
 .contact-left .illustration {
   font-size: 7rem;
   line-height: 1;
@@ -414,13 +421,13 @@ footer {
   border-top: 1px solid #f0f0f0;
 }
 
-/* ── SVG DECORATIVOS ── */
+/* ── SVG DECORATIVOS ──*/
 .blob-top {
   position: absolute;
   top: 70px;
   right: 0px;
   width: 800px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -429,7 +436,7 @@ footer {
   left: 0px;
   top: 40px;
   width: 420px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -438,7 +445,7 @@ footer {
   right: 0px;
   top: 80px;
   width: 324px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -447,7 +454,7 @@ footer {
   left: 0px;
   bottom: 0px;
   width: 400px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -456,7 +463,7 @@ footer {
   right: 0px;
   top: 0;
   width: 350px;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -480,3 +487,225 @@ footer {
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.25s; }
 .delay-3 { animation-delay: 0.4s; }
+
+
+/* ═══════════════════════════════════
+   RESPONSIVIDADE
+═══════════════════════════════════ */
+
+/* ── TABLET (≤ 1024px) ── */
+@media (max-width: 1024px) {
+
+  nav {
+    padding: 16px 32px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+
+  #home {
+    padding: 130px 32px 60px;
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-phones {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .blob-top {
+    width: 500px;
+  }
+
+  #features,
+  #funcionamento,
+  #contatos {
+    padding: 80px 32px;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .features-grid > div:not(.features-center-phone) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .feature-card {
+    max-width: 260px;
+  }
+
+  .feature-card-gap {
+    margin-top: 0;
+  }
+
+  .features-center-phone {
+    order: -1;
+  }
+
+  .how-item,
+  .how-item.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .how-text p {
+    max-width: 100%;
+  }
+
+  .how-bullets {
+    align-items: center;
+  }
+
+  .contact-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .contact-left {
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .contact-left img {
+    width: 320px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .contact-right {
+    width: 280px;
+    opacity: 0.85;
+  }
+}
+
+/* ── MOBILE (≤ 600px) ── */
+@media (max-width: 600px) {
+
+  nav {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  #home {
+    padding: 150px 20px 50px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    padding: 12px 22px;
+    font-size: 0.85rem;
+  }
+
+  .hero-phones {
+    margin-top: 30px;
+  }
+
+  .hero-phones .phone-mockup {
+    width: 130px;
+  }
+
+  .blob-top {
+    width: 340px;
+    top: 40px;
+  }
+
+  #features,
+  #funcionamento,
+  #contatos {
+    padding: 60px 20px;
+  }
+
+  .section-label {
+    font-size: 1.5rem;
+  }
+
+  .section-sub {
+    margin-bottom: 40px;
+    font-size: 0.85rem;
+  }
+
+  .features-grid > div:not(.features-center-phone) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features-center-phone .phone-mockup {
+    width: 150px;
+  }
+
+  .how-item .phone-mockup {
+    width: 160px;
+  }
+
+  .how-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-left img {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .contact-right {
+    width: 320px;
+    opacity: 1;
+  }
+
+  .contact-form textarea {
+    height: 110px;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.75rem;
+  }
+}
