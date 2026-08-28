@@ -64,6 +64,7 @@ nav {
   align-items: center;
   padding: 120px 60px 80px;
   overflow: hidden;
+  z-index: 0;
 }
 
 .hero-content {
